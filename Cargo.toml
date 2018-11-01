@@ -1,4 +1,4 @@
 [workspace]
 members = [
-    "src/rcc-stl"
+    "src/rcc-lib"
 ]
