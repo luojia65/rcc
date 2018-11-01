@@ -1,5 +1,5 @@
-#ifndef _RCC_STL_MATH_H
-#define _RCC_STL_MATH_H
+#ifndef _MATH_H_
+#define _MATH_H_
 
 extern double acos(double x);
 extern double asin(double x);
@@ -23,4 +23,4 @@ extern double fabs(double x);
 extern double floor(double x);
 extern double fmod(double x, double y);
 
-#endif /* _RCC_STL_MATH_H */
+#endif /* _MATH_H_ */
