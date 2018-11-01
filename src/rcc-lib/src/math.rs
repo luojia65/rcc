@@ -1,43 +1,59 @@
-macro_rules! f64_defs {
+use crate::{RccDouble as Double, RccInt as Int};
+
+macro_rules! double_defs {
     ($($name: ident )+) => {
         $(
             #[no_mangle]
-            pub extern "C" fn $name(x: f64) -> f64 {
-                f64::$name(x)
+            pub extern "C" fn $name(x: Double) -> Double {
+                Double::$name(x)
             }
         )+
     };
 }
 
-f64_defs! {
+double_defs! {
     acos asin atan cos cosh sin sinh tanh
     exp log10 sqrt ceil floor
 }
 
 #[no_mangle]
-pub extern "C" fn atan2(x: f64, y: f64) -> f64 {
-    f64::atan2(x, y)
+pub extern "C" fn atan2(x: Double, y: Double) -> Double {
+    Double::atan2(x, y)
 }
 
 #[no_mangle]
-pub extern "C" fn pow(x: f64, y: f64) -> f64 {
+pub extern "C" fn pow(x: Double, y: Double) -> Double {
     x.powf(y)
 }
 
 #[no_mangle]
-pub extern "C" fn fabs(x: f64) -> f64 {
+pub extern "C" fn fabs(x: Double) -> Double {
     x.abs()
 }
 
 #[no_mangle]
-pub extern "C" fn log(x: f64) -> f64 {
+pub extern "C" fn log(x: Double) -> Double {
     x.ln()
 }
 
+#[no_mangle]
+pub extern "C" fn fmod(x: Double, y: Double) -> Double {
+    x.mod_euc(y)
+}
 
 #[no_mangle]
-pub extern "C" fn fmod(x: f64, y: f64) -> f64 {
-    x.mod_euc(y)
+pub extern "C" fn frexp(_x: Double, _exponent: *const Int) -> Double {
+    unimplemented!()
+}
+
+#[no_mangle]
+pub extern "C" fn ldexp(_x: Double, _exponent: Int) -> Double {
+    unimplemented!()
+}
+
+#[no_mangle]
+pub extern "C" fn modf(_x: Double, _integer: *const Double) -> Double {
+    unimplemented!()
 }
 
 /*
