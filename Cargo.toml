@@ -1,4 +1,5 @@
 [workspace]
 members = [
-    "src/rcc-lib"
+    "librcc-lexer",
+    "librcc-preproc",
 ]
